@@ -2,6 +2,7 @@
 """
 第一阶段：Commit 数据采集脚本
 使用 PyDriller 从本地 Git 仓库提取所有 Commit 信息
+Author:佟雨泽
 """
 
 import json
@@ -29,9 +30,18 @@ def fetch_commits(repo_path: str, since: str = None, until: str = None) -> List[
     print(f"📦 正在扫描仓库: {repo_path}")
     
     try:
-        repo = Repository(repo_path, since=since, until=until)
+        # 处理时间范围参数
+        if since and until:
+            repo = Repository(repo_path, since=since, to=until)
+        elif since:
+            repo = Repository(repo_path, since=since)
+        elif until:
+            repo = Repository(repo_path, to=until)
+        else:
+            repo = Repository(repo_path)
         total = 0
         
+        # 遍历所有 commits
         for commit in repo.traverse_commits():
             total += 1
             
@@ -170,13 +180,13 @@ def main():
     )
     parser.add_argument(
         '--repo-path', 
-        required=True, 
-        help='Git 仓库本地路径'
+        default='../../源代码',  # 默认指向 MaxKB 源代码目录
+        help='Git 仓库本地路径 (默认: ../../源代码)'
     )
     parser.add_argument(
         '--output-file',
-        default='data/commits.json',
-        help='输出文件路径 (默认: data/commits.json)'
+        default='data/maxkb_commits.json',
+        help='输出文件路径 (默认: data/maxkb_commits.json)'
     )
     parser.add_argument(
         '--since',
