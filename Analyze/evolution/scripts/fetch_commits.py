@@ -2,6 +2,7 @@
 """
 第一阶段：Commit 数据采集脚本
 使用 PyDriller 从本地 Git 仓库提取所有 Commit 信息
+Author:佟雨泽
 """
 
 import json
