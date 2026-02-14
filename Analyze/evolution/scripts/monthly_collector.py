@@ -13,6 +13,11 @@ import os
 from datetime import datetime
 from pathlib import Path
 from github import Github
+try:
+    from github import Auth  # 新版本 PyGithub
+    HAS_AUTH = True
+except ImportError:
+    HAS_AUTH = False
 
 def get_existing_data_info():
     """检测已存在的数据文件，返回最新的采集时间"""
@@ -73,7 +78,13 @@ def get_latest_commit_date():
             return datetime.now()
         
         # 初始化 GitHub 客户端
-        g = Github(token)
+        if HAS_AUTH:
+            # 使用新版本的认证方式
+            auth = Auth.Token(token)
+            g = Github(auth=auth)
+        else:
+            # 兼容旧版本
+            g = Github(token)
         repo = g.get_repo('1Panel-dev/MaxKB')
         
         # 获取最新的 commit
