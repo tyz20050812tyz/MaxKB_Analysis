@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
 """
 第一阶段：Commit 数据采集脚本
-使用 PyDriller 从本地 Git 仓库提取所有 Commit 信息
+使用 GitHub API 从远程仓库提取所有 Commit 信息
 Author:佟雨泽
 """
 
 import json
 import argparse
+import requests
+import os
 from datetime import datetime
 from pathlib import Path
-from pydriller import Repository
+from github import Github
 from typing import List, Dict
 
 
-def fetch_commits(repo_path: str, since: str = None, until: str = None) -> List[Dict]:
+def fetch_github_commits(repo_name: str, token: str = None, since: str = None, until: str = None) -> List[Dict]:
     """
-    从 Git 仓库提取所有 Commit 数据
+    从 GitHub 仓库提取所有 Commit 数据
     
     Args:
-        repo_path: Git 仓库本地路径
+        repo_name: GitHub 仓库名称 (格式: owner/repo)
+        token: GitHub Personal Access Token (可选，但建议使用以避免速率限制)
         since: 开始日期 (YYYY-MM-DD)
         until: 结束日期 (YYYY-MM-DD)
     
@@ -27,54 +30,87 @@ def fetch_commits(repo_path: str, since: str = None, until: str = None) -> List[
     """
     commits_list = []
     
-    print(f"📦 正在扫描仓库: {repo_path}")
+    print(f"📦 正在从 GitHub 获取仓库数据: {repo_name}")
     
     try:
-        # 处理时间范围参数
-        if since and until:
-            repo = Repository(repo_path, since=since, to=until)
-        elif since:
-            repo = Repository(repo_path, since=since)
-        elif until:
-            repo = Repository(repo_path, to=until)
+        # 初始化 GitHub 客户端
+        if token:
+            g = Github(token)
         else:
-            repo = Repository(repo_path)
+            g = Github()
+            print("⚠️  未提供 GitHub token，可能会遇到 API 速率限制")
+        
+        # 获取仓库
+        repo = g.get_repo(repo_name)
+        print(f"✅ 成功连接到仓库: {repo.full_name}")
+        print(f"⭐ Star 数量: {repo.stargazers_count}")
+        print(f"🍴 Fork 数量: {repo.forks_count}")
+        
+        # 构建查询参数
+        params = {}
+        if since:
+            params['since'] = since
+        if until:
+            params['until'] = until
+            
+        # 获取 commits
+        commits = repo.get_commits(**params)
         total = 0
         
-        # 遍历所有 commits
-        for commit in repo.traverse_commits():
+        print("📥 开始获取 commit 数据...")
+        
+        for commit in commits:
             total += 1
+            
+            # 获取详细的 commit 信息
+            commit_details = commit.commit
             
             # 构建 Commit 数据
             commit_data = {
-                'hash': commit.hash,
-                'author': commit.author.name,
-                'author_email': commit.author.email,
-                'date': commit.committer_date.isoformat(),
-                'message': commit.msg,
-                'insertions': commit.insertions,
-                'deletions': commit.deletions,
-                'files_changed': len(commit.modified_files),
-                'is_merge': commit.merge,
+                'hash': commit.sha,
+                'author': commit_details.author.name if commit_details.author else 'Unknown',
+                'author_email': commit_details.author.email if commit_details.author else '',
+                'date': commit_details.author.date.isoformat() if commit_details.author else '',
+                'message': commit_details.message,
+                'committer': commit_details.committer.name if commit_details.committer else 'Unknown',
+                'committer_email': commit_details.committer.email if commit_details.committer else '',
+                'url': commit.html_url,
+                'stats': {},
                 'files': []
             }
             
-            # 提取修改的文件
-            for file in commit.modified_files:
-                commit_data['files'].append({
-                    'filename': file.filename,
-                    'added_lines': file.added_lines,
-                    'deleted_lines': file.deleted_lines,
-                    'change_type': file.change_type.name
-                })
+            # 获取文件变更统计（如果可用）
+            try:
+                if commit.stats:
+                    commit_data['stats'] = {
+                        'additions': commit.stats.additions,
+                        'deletions': commit.stats.deletions,
+                        'total': commit.stats.total
+                    }
+            except:
+                pass
+            
+            # 获取修改的文件
+            try:
+                files = commit.files
+                for file in files:
+                    commit_data['files'].append({
+                        'filename': file.filename,
+                        'status': file.status,
+                        'additions': file.additions,
+                        'deletions': file.deletions,
+                        'changes': file.changes
+                    })
+            except:
+                pass
             
             commits_list.append(commit_data)
             
             # 进度显示
-            if total % 100 == 0:
-                print(f"  ✓ 已处理 {total} 个 Commit...")
-        
-        print(f"✅ 总共提取 {total} 个 Commit")
+            if total % 50 == 0:
+                print(f"  ✓ 已获取 {total} 个 Commit...")
+                
+        print(f"✅ 总共获取 {total} 个 Commit")
         
     except Exception as e:
         print(f"❌ 错误: {e}")
@@ -156,41 +192,56 @@ def generate_summary(commits: List[Dict]) -> Dict:
     if not commits:
         return {}
     
-    dates = [datetime.fromisoformat(c['date']) for c in commits]
+    # 过滤掉无效日期的 commit
+    valid_commits = [c for c in commits if c['date']]
+    if not valid_commits:
+        return {}
+    
+    dates = [datetime.fromisoformat(c['date']) for c in valid_commits]
+    
+    # 计算统计数据
+    total_additions = sum(c['stats'].get('additions', 0) for c in valid_commits)
+    total_deletions = sum(c['stats'].get('deletions', 0) for c in valid_commits)
+    total_files = sum(len(c['files']) for c in valid_commits)
     
     summary = {
         'total_commits': len(commits),
+        'valid_commits': len(valid_commits),
         'unique_authors': len(set(c['author'] for c in commits)),
         'date_range': {
-            'start': min(dates).isoformat(),
-            'end': max(dates).isoformat()
+            'start': min(dates).isoformat() if dates else '',
+            'end': max(dates).isoformat() if dates else ''
         },
-        'total_insertions': sum(c['insertions'] for c in commits),
-        'total_deletions': sum(c['deletions'] for c in commits),
-        'files_touched': len(set(f['filename'] for c in commits for f in c['files'])),
-        'merge_commits': len([c for c in commits if c['is_merge']])
+        'total_additions': total_additions,
+        'total_deletions': total_deletions,
+        'total_files_changed': total_files,
+        'avg_commits_per_author': len(valid_commits) / len(set(c['author'] for c in valid_commits)) if valid_commits else 0
     }
     
     return summary
 
 
 def main():
-    # 获取项目根目录的绝对路径
-    project_root = Path(__file__).parent.parent.parent.absolute()
-    default_repo_path = project_root / "源代码"
+    # 直接在这里设置 GitHub token（为了方便使用）
+    DEFAULT_GITHUB_TOKEN = "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"
     
     parser = argparse.ArgumentParser(
-        description='从 Git 仓库提取 Commit 数据'
+        description='从 GitHub 仓库提取 Commit 数据'
     )
     parser.add_argument(
-        '--repo-path', 
-        default=str(default_repo_path),  # 默认指向 MaxKB 源代码目录
-        help=f'Git 仓库本地路径 (默认: {default_repo_path})'
+        '--repo-name', 
+        default='1Panel-dev/MaxKB',  # MaxKB 的 GitHub 仓库
+        help='GitHub 仓库名称 (格式: owner/repo, 默认: 1Panel-dev/MaxKB)'
+    )
+    parser.add_argument(
+        '--github-token',
+        default=DEFAULT_GITHUB_TOKEN,  # 使用默认 token
+        help='GitHub Personal Access Token (可选，但建议使用)'
     )
     parser.add_argument(
         '--output-file',
-        default='data/maxkb_commits.json',
-        help='输出文件路径 (默认: data/maxkb_commits.json)'
+        default='data/github_commits.json',
+        help='输出文件路径 (默认: data/github_commits.json)'
     )
     parser.add_argument(
         '--since',
@@ -201,48 +252,90 @@ def main():
         help='结束日期 (YYYY-MM-DD)'
     )
     parser.add_argument(
-        '--filter-bots',
-        action='store_true',
-        default=True,
-        help='过滤机器人账户 (默认: True)'
+        '--max-commits',
+        type=int,
+        default=1000,
+        help='最大获取的 commit 数量 (默认: 1000)'
     )
     
     args = parser.parse_args()
     
     print("=" * 60)
-    print("🚀 MaxKB Commit 数据采集工具")
+    print("🚀 GitHub Commit 数据采集工具")
     print("=" * 60)
     
+    # 如果没有提供 token，尝试从环境变量获取
+    token = args.github_token or os.getenv('GITHUB_TOKEN')
+    
+    # 显示配置信息
+    print(f"📁 目标仓库: {args.repo_name}")
+    print(f"📁 输出文件: {args.output_file}")
+    print(f"📁 时间范围: {args.since or '开始'} 至 {args.until or '现在'}")
+    print(f"📁 最大数量: {args.max_commits}")
+    print(f"📁 使用 Token: {'是' if token else '否'}")
+    
+    if not args.github_token:
+        print("⚠️  建议提供 GitHub token 以避免 API 速率限制")
+        print("💡 可通过 --github-token 参数提供，或设置 GITHUB_TOKEN 环境变量")
+    
+    # 如果没有提供 token，尝试从环境变量获取
+    token = args.github_token or os.getenv('GITHUB_TOKEN')
+    
     # 采集数据
-    commits = fetch_commits(args.repo_path, args.since, args.until)
+    commits = fetch_github_commits(args.repo_name, token, args.since, args.until)
     
-    # 数据清洗
-    if args.filter_bots:
-        commits = filter_bots(commits)
+    # 限制最大数量
+    if len(commits) > args.max_commits:
+        print(f"✂️  限制 commit 数量至 {args.max_commits}")
+        commits = commits[:args.max_commits]
     
-    commits, author_mapping = merge_duplicate_authors(commits)
+    # 数据清洗 (简化版)
+    print("🧹 正在清洗数据...")
+    
+    # 过滤机器人提交
+    bots = ['dependabot', 'renovate', 'codecov', 'github-actions']
+    filtered_commits = [
+        c for c in commits 
+        if not any(bot in c['author'].lower() for bot in bots)
+    ]
+    
+    if len(filtered_commits) < len(commits):
+        print(f"🤖 过滤了 {len(commits) - len(filtered_commits)} 个机器人提交")
+        commits = filtered_commits
+    
+    # 简单的作者去重
+    authors = {}
+    for commit in commits:
+        author = commit['author']
+        if author not in authors:
+            authors[author] = 0
+        authors[author] += 1
+    
+    print(f"👥 识别出 {len(authors)} 个独立作者")
     
     # 生成摘要
     summary = generate_summary(commits)
     print("\n📊 数据摘要:")
     print(f"  • 总 Commit 数: {summary['total_commits']}")
+    print(f"  • 有效 Commit 数: {summary['valid_commits']}")
     print(f"  • 独立作者数: {summary['unique_authors']}")
-    print(f"  • 时间范围: {summary['date_range']['start'][:10]} 至 {summary['date_range']['end'][:10]}")
-    print(f"  • 代码增加: {summary['total_insertions']:,} 行")
+    if summary['date_range']['start']:
+        print(f"  • 时间范围: {summary['date_range']['start'][:10]} 至 {summary['date_range']['end'][:10]}")
+    print(f"  • 代码增加: {summary['total_additions']:,} 行")
     print(f"  • 代码删除: {summary['total_deletions']:,} 行")
-    print(f"  • 修改文件数: {summary['files_touched']}")
-    print(f"  • 合并提交数: {summary['merge_commits']}")
+    print(f"  • 修改文件数: {summary['total_files_changed']}")
+    print(f"  • 平均每人提交: {summary['avg_commits_per_author']:.1f} 次")
     
     # 保存数据
     save_commits(commits, args.output_file)
     
     # 保存摘要
     summary_file = args.output_file.replace('.json', '_summary.json')
-    with open(summary_file, 'w') as f:
-        json.dump(summary, f, indent=2)
+    with open(summary_file, 'w', encoding='utf-8') as f:
+        json.dump(summary, f, ensure_ascii=False, indent=2)
     print(f"💾 摘要已保存到: {summary_file}")
     
-    print("\n✅ 数据采集完成！")
+    print("\n✅ GitHub 数据采集完成！")
 
 
 if __name__ == '__main__':
