@@ -12,7 +12,26 @@ import os
 from datetime import datetime
 from pathlib import Path
 from github import Github
+try:
+    from github import Auth  # 新版本 PyGithub
+    HAS_AUTH = True
+except ImportError:
+    HAS_AUTH = False
 from typing import List, Dict
+from dotenv import load_dotenv
+
+# 直接从 .env.example 文件读取 token
+def load_token_from_env_example():
+    env_file = Path(__file__).parent.parent.parent / '.env.example'
+    if env_file.exists():
+        with open(env_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                if line.startswith('GITHUB_TOKEN='):
+                    return line.split('=', 1)[1].strip()
+    return None
+
+# 获取 token
+default_token = load_token_from_env_example()
 
 
 def fetch_github_commits(repo_name: str, token: str = None, since: str = None, until: str = None) -> List[Dict]:
@@ -35,7 +54,13 @@ def fetch_github_commits(repo_name: str, token: str = None, since: str = None, u
     try:
         # 初始化 GitHub 客户端
         if token:
-            g = Github(token)
+            if HAS_AUTH:
+                # 使用新版本的认证方式
+                auth = Auth.Token(token)
+                g = Github(auth=auth)
+            else:
+                # 兼容旧版本
+                g = Github(token)
         else:
             g = Github()
             print("⚠️  未提供 GitHub token，可能会遇到 API 速率限制")
@@ -49,12 +74,18 @@ def fetch_github_commits(repo_name: str, token: str = None, since: str = None, u
         # 构建查询参数
         params = {}
         if since:
-            params['since'] = since
+            # 将字符串转换为 datetime 对象
+            since_dt = datetime.strptime(since, '%Y-%m-%d')
+            params['since'] = since_dt
         if until:
-            params['until'] = until
+            # 将字符串转换为 datetime 对象
+            until_dt = datetime.strptime(until, '%Y-%m-%d')
+            params['until'] = until_dt
             
         # 获取 commits
+        print(f"🔍 查询参数: {params}")
         commits = repo.get_commits(**params)
+        print(f"📊 API 返回的 commits 对象: {type(commits)}")
         total = 0
         
         print("📥 开始获取 commit 数据...")
@@ -260,8 +291,8 @@ def main():
     print("🚀 GitHub Commit 数据采集工具")
     print("=" * 60)
     
-    # 如果没有提供 token，尝试从环境变量获取
-    token = args.github_token or os.getenv('GITHUB_TOKEN')
+    # 获取 token (优先级: 命令行参数 > .env.example 文件 > 环境变量)
+    token = args.github_token or default_token or os.getenv('GITHUB_TOKEN')
     
     # 显示配置信息
     print(f"📁 目标仓库: {args.repo_name}")
@@ -270,12 +301,9 @@ def main():
     print(f"📁 最大数量: {args.max_commits}")
     print(f"📁 使用 Token: {'是' if token else '否'}")
     
-    if not args.github_token:
+    if not token:
         print("⚠️  建议提供 GitHub token 以避免 API 速率限制")
-        print("💡 可通过 --github-token 参数提供，或设置 GITHUB_TOKEN 环境变量")
-    
-    # 如果没有提供 token，尝试从环境变量获取
-    token = args.github_token or os.getenv('GITHUB_TOKEN')
+        print("💡 可通过 --github-token 参数提供，或确保 .env.example 文件中有正确配置")
     
     # 采集数据
     commits = fetch_github_commits(args.repo_name, token, args.since, args.until)
@@ -312,15 +340,19 @@ def main():
     # 生成摘要
     summary = generate_summary(commits)
     print("\n📊 数据摘要:")
-    print(f"  • 总 Commit 数: {summary['total_commits']}")
-    print(f"  • 有效 Commit 数: {summary['valid_commits']}")
-    print(f"  • 独立作者数: {summary['unique_authors']}")
-    if summary['date_range']['start']:
-        print(f"  • 时间范围: {summary['date_range']['start'][:10]} 至 {summary['date_range']['end'][:10]}")
-    print(f"  • 代码增加: {summary['total_additions']:,} 行")
-    print(f"  • 代码删除: {summary['total_deletions']:,} 行")
-    print(f"  • 修改文件数: {summary['total_files_changed']}")
-    print(f"  • 平均每人提交: {summary['avg_commits_per_author']:.1f} 次")
+    
+    if summary:
+        print(f"  • 总 Commit 数: {summary.get('total_commits', 0)}")
+        print(f"  • 有效 Commit 数: {summary.get('valid_commits', 0)}")
+        print(f"  • 独立作者数: {summary.get('unique_authors', 0)}")
+        if summary.get('date_range', {}).get('start'):
+            print(f"  • 时间范围: {summary['date_range']['start'][:10]} 至 {summary['date_range']['end'][:10]}")
+        print(f"  • 代码增加: {summary.get('total_additions', 0):,} 行")
+        print(f"  • 代码删除: {summary.get('total_deletions', 0):,} 行")
+        print(f"  • 修改文件数: {summary.get('total_files_changed', 0)}")
+        print(f"  • 平均每人提交: {summary.get('avg_commits_per_author', 0):.1f} 次")
+    else:
+        print("  • 没有获取到任何 commit 数据")
     
     # 保存数据
     save_commits(commits, args.output_file)
