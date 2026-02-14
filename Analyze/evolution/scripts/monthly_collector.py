@@ -8,8 +8,72 @@ Author: 佟雨泽
 import subprocess
 import sys
 import calendar
+import json
+import os
 from datetime import datetime
 from pathlib import Path
+from github import Github
+
+def get_existing_data_info():
+    """检测已存在的数据文件，返回最新的采集时间"""
+    data_dir = Path('data')
+    if not data_dir.exists():
+        return None
+    
+    existing_months = []
+    
+    # 查找已有的 commit 数据文件
+    for file in data_dir.glob('commits_*.json'):
+        if file.name.startswith('commits_') and file.name.endswith('.json'):
+            try:
+                # 解析文件名: commits_2023_06.json
+                parts = file.stem.split('_')
+                if len(parts) == 3 and parts[0] == 'commits':
+                    year = int(parts[1])
+                    month = int(parts[2])
+                    existing_months.append((year, month))
+            except:
+                continue
+    
+    # 返回最新的月份
+    if existing_months:
+        latest_year, latest_month = max(existing_months)
+        return {'year': latest_year, 'month': latest_month}
+    
+    return None
+
+def get_latest_commit_date():
+    """获取 GitHub 上最新的 commit 日期"""
+    try:
+        # 读取 token
+        token = None
+        env_file = Path(__file__).parent.parent.parent / '.env.example'
+        if env_file.exists():
+            with open(env_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    if line.startswith('GITHUB_TOKEN='):
+                        token = line.split('=', 1)[1].strip()
+                        break
+        
+        if not token:
+            print("⚠️  无法获取 GitHub token，使用当前日期作为参考")
+            return datetime.now()
+        
+        # 初始化 GitHub 客户端
+        g = Github(token)
+        repo = g.get_repo('1Panel-dev/MaxKB')
+        
+        # 获取最新的 commit
+        default_branch = repo.default_branch
+        branch = repo.get_branch(default_branch)
+        latest_commit = repo.get_commit(branch.commit.sha)
+        
+        # 返回最新的 commit 日期
+        return latest_commit.commit.author.date
+        
+    except Exception as e:
+        print(f"⚠️  获取最新 commit 日期失败: {e}")
+        return datetime.now()
 
 def get_monthly_ranges(start_year=2023, start_month=6, end_year=2024, end_month=2):
     """生成月份时间范围列表"""
@@ -43,14 +107,44 @@ def get_monthly_ranges(start_year=2023, start_month=6, end_year=2024, end_month=
     return ranges
 
 def collect_monthly_commits():
-    """按月批量采集commit数据"""
-    # 定义时间范围
-    month_ranges = get_monthly_ranges()
+    """按月批量采集commit数据（智能增量采集）"""
+    print("=" * 60)
+    print("📅 MaxKB 智能 Commit 数据采集工具")
+    print("=" * 60)
     
-    print("=" * 60)
-    print("📅 MaxKB 按月 Commit 数据采集工具")
-    print("=" * 60)
-    print(f"总计需要采集 {len(month_ranges)} 个月的数据")
+    # 检测已存在的数据
+    existing_info = get_existing_data_info()
+    latest_commit_date = get_latest_commit_date()
+    
+    # 确定采集范围
+    if existing_info:
+        print(f"📊 检测到已有数据到: {existing_info['year']}年{existing_info['month']}月")
+        start_year = existing_info['year']
+        start_month = existing_info['month'] + 1
+        if start_month > 12:
+            start_month = 1
+            start_year += 1
+    else:
+        print("📊 未检测到已有数据，从项目开始采集")
+        start_year = 2023
+        start_month = 6
+    
+    # 确定结束时间
+    end_date = latest_commit_date
+    end_year = end_date.year
+    end_month = end_date.month
+    
+    print(f"📈 最新 commit 日期: {end_date.strftime('%Y-%m-%d')}")
+    print(f"🎯 采集范围: {start_year}年{start_month}月 至 {end_year}年{end_month}月")
+    
+    # 生成需要采集的月份范围
+    month_ranges = get_monthly_ranges(start_year, start_month, end_year, end_month)
+    
+    if not month_ranges:
+        print("✅ 所有数据都已采集完成，无需额外采集！")
+        return
+    
+    print(f"📦 总计需要采集 {len(month_ranges)} 个月的数据")
     print("每月限制: 最多 250 个 commit")
     print()
     
