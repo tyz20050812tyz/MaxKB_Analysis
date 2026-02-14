@@ -222,9 +222,6 @@ def generate_summary(commits: List[Dict]) -> Dict:
 
 
 def main():
-    # 直接在这里设置 GitHub token（为了方便使用）
-    DEFAULT_GITHUB_TOKEN = "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"
-    
     parser = argparse.ArgumentParser(
         description='从 GitHub 仓库提取 Commit 数据'
     )
@@ -235,7 +232,6 @@ def main():
     )
     parser.add_argument(
         '--github-token',
-        default=DEFAULT_GITHUB_TOKEN,  # 使用默认 token
         help='GitHub Personal Access Token (可选，但建议使用)'
     )
     parser.add_argument(
