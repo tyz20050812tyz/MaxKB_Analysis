@@ -175,13 +175,17 @@ def generate_summary(commits: List[Dict]) -> Dict:
 
 
 def main():
+    # 获取项目根目录的绝对路径
+    project_root = Path(__file__).parent.parent.parent.absolute()
+    default_repo_path = project_root / "源代码"
+    
     parser = argparse.ArgumentParser(
         description='从 Git 仓库提取 Commit 数据'
     )
     parser.add_argument(
         '--repo-path', 
-        default='../../源代码',  # 默认指向 MaxKB 源代码目录
-        help='Git 仓库本地路径 (默认: ../../源代码)'
+        default=str(default_repo_path),  # 默认指向 MaxKB 源代码目录
+        help=f'Git 仓库本地路径 (默认: {default_repo_path})'
     )
     parser.add_argument(
         '--output-file',
