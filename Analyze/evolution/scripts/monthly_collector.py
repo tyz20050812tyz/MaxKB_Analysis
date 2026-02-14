@@ -42,6 +42,19 @@ def get_existing_data_info():
     
     return None
 
+def check_token_status():
+    """检查 token 配置状态"""
+    env_file = Path(__file__).parent.parent.parent / '.env.example'
+    if not env_file.exists():
+        return False
+    
+    with open(env_file, 'r', encoding='utf-8') as f:
+        for line in f:
+            if line.startswith('GITHUB_TOKEN='):
+                token = line.split('=', 1)[1].strip()
+                return len(token) > 20  # 简单验证 token 长度
+    return False
+
 def get_latest_commit_date():
     """获取 GitHub 上最新的 commit 日期"""
     try:
@@ -167,6 +180,7 @@ def collect_monthly_commits():
         ]
         
         try:
+            print(f"  🚀 开始采集... (使用 {'Token' if check_token_status() else '无Token'})")
             # 执行采集（指定编码避免Windows乱码）
             result = subprocess.run(
                 cmd, 
@@ -179,7 +193,19 @@ def collect_monthly_commits():
             )
             
             if result.returncode == 0:
+                # 尝试读取采集结果统计
+                summary_file = range_info['output'].replace('.json', '_summary.json')
+                commit_count = 0
+                if Path(summary_file).exists():
+                    try:
+                        with open(summary_file, 'r', encoding='utf-8') as f:
+                            summary = json.load(f)
+                            commit_count = summary.get('total_commits', 0)
+                    except:
+                        pass
+                
                 print(f"  ✅ {range_info['label']} 采集完成")
+                print(f"     提取了 {commit_count} 个 commit")
                 success_count += 1
             else:
                 print(f"  ❌ {range_info['label']} 采集失败:")
