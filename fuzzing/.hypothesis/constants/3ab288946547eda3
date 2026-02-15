@@ -1,0 +1,4 @@
+# file: D:\work\MaxKB_Analysis\fuzzing\file_fuzzers\pdf_fuzzer.py
+# hypothesis_version: 6.151.6
+
+[b'test', b'test content', 200, 201, 400, 500, '-', '--base-url', '--dataset-id', '--file-dir', '--results-dir', '--token', '.docx', '.html', '.md', '.pdf', '.txt', '.xlsx', '/', '/api/dataset', '/api/document/upload', '/api/v1/dataset', '=', 'Authorization', 'CONNECTION_ERROR', 'CRASH', 'ERROR', 'SERVER_ERROR', 'TIMEOUT', 'UNKNOWN', '[FAIL]', '[OK]', '__main__', 'all_results', 'application/pdf', 'bug_type', 'bugs', 'bugs_found', 'crashes', 'dataset_id', 'endpoint', 'error', 'file', 'file_size', 'is_bug', 'malformed_files', 'meta', 'mime_type', 'rb', 'response_body', 'response_time', 'results', 'server_errors', 'status_code', 'summary', 'target', 'test.txt', 'text/html', 'text/markdown', 'text/plain', 'timeouts', 'timestamp', 'total', 'total_tests', 'upload_endpoint', 'utf-8', 'w']

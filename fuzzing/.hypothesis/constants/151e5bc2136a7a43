@@ -1,0 +1,4 @@
+# file: D:\work\MaxKB_Analysis\fuzzing\file_fuzzers\hypothesis_fuzzer.py
+# hypothesis_version: 6.151.6
+
+[100, 200, 500, 2000, 5000, 10000, 60000, ' [OK]', '--base-url', '--token', '-_/.', '/', '0', '=', 'Accept', 'Authorization', 'Content-Type', 'DELETE', 'GET', 'L', 'N', 'OPTIONS', 'PATCH', 'POST', 'PUT', '__main__', 'all_results', 'api_code', 'api_message', 'application/json', 'bugs', 'bugs_found', 'by_test', 'code', 'create_knowledge', 'data', 'data_type', 'desc', 'desc_length', 'desc_preview', 'hypothesis', 'id', 'is_bug', 'malformed_json', 'message', 'meta', 'method', 'name', 'name_length', 'name_preview', 'path', 'query_length', 'query_preview', 'random_endpoint', 'results', 'search_knowledge', 'summary', 'target', 'test', 'timestamp', 'tool', 'total', 'total_tests', 'type', 'utf-8', 'w']

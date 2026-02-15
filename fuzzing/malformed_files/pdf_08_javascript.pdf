@@ -1,0 +1,4 @@
+%PDF-1.4
+1 0 obj<< /Type /Catalog /OpenAction 3 0 R >>endobj
+3 0 obj<< /Type /Action /S /JavaScript /JS (app.alert('XSS')) >>endobj
+%%EOF
