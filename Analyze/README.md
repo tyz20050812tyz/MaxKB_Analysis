@@ -1,390 +1,393 @@
-# MaxKB 开源项目完整分析
+# MaxKB_Analysis 分析框架
 
-一个系统化、多层次的开源项目分析框架，涵盖**仓库演化**、**代码质量**、**安全性**和**逻辑形式化**四个维度。
+<div align="center">
 
-## 📋 项目概述
+[![Analysis Framework](https://img.shields.io/badge/framework-four--stage-blue.svg)](#)
+[![Status](https://img.shields.io/badge/status-active-success.svg)](#)
+[![Last Update](https://img.shields.io/badge/updated-2026--02--15-brightgreen.svg)](#)
 
-本项目对 [MaxKB](https://github.com/1Panel-dev/MaxKB)（一个基于 LLM 的知识库系统）进行深度分析，采用**四阶段分析策略**，从数据、代码、安全、验证多个角度剖析开源项目的质量、风险和架构特点。
+</div>
 
-### 为什么选择 MaxKB？
+## 📋 框架概述
 
-- ✅ **活跃社区**：GPL-3.0 开源，有稳定的开发团队
-- ✅ **复杂架构**：涉及 RAG、向量数据库、权限管理等现代 AI 系统关键组件
-- ✅ **实际应用**：企业级项目，具有实战价值
-- ✅ **多层次**：后端（Django/Python）、前端（Vue）、基础设施（Docker）
+MaxKB_Analysis 分析框架是一个系统化、多层次的开源项目质量评估体系，专为深入分析 [MaxKB](https://github.com/1Panel-dev/MaxKB) 知识库系统而设计。框架采用**四阶段递进式分析策略**，从数据、代码、安全、验证四个维度全面剖析开源项目的架构质量与潜在风险。
 
 ## 🎯 四阶段分析策略
 
-### 第一阶段：仓库演化与社区画像分析 📊
-**数据层面** | 分析工具：PyDriller、GitPython、Pandas、Matplotlib
+### 🔴 第一阶段：仓库演化与社区画像分析 📊
+**数据驱动分析** | 工具链：PyDriller、GitPython、Pandas、Matplotlib
 
-深入挖掘 MaxKB 的发展轨迹和社区特征：
-- **贡献者分布**：识别核心开发者，判断是否高度集中还是去中心化
-- **模块稳定性**：统计各模块修改频率，发现 Bug 热点区域
-- **Issue 生命周期**：计算平均解决时长，评估维护效率
+深入挖掘 MaxKB 的发展轨迹和社区生态特征：
 
-📂 **产出位置**：[evolution/](evolution/)
+**核心分析内容：**
+- **贡献者画像**：识别核心开发者，分析社区代码控制模式（集中式 vs 去中心化）
+- **模块演化**：统计各功能模块修改频率，定位 Bug 热点区域
+- **社区健康度**：计算 Issue 解决时效，评估维护团队响应效率
+- **发展趋势**：分析提交活跃度变化，预测项目发展方向
+
+**关键技术指标：**
+- 贡献者集中度指数
+- 模块稳定性评分
+- Issue 响应时间分布
+- 代码提交活跃度趋势
+
+📁 **产出位置**：[evolution/](./evolution/)
 
 ---
 
-### 第二阶段：基于 LibCST 的静态代码分析 🔍
-**技术难度层面** | 分析工具：libcst、flake8、bandit、radon
+### 🟠 第二阶段：基于 LibCST 的静态代码分析 🔍
+**代码质量深度挖掘** | 工具链：libcst、flake8、bandit、radon
 
-在**不运行代码**的前提下发现潜在问题：
-- **代码异味检测**：扫描异步/同步混用、异常处理不当等问题
+在**不运行代码**的前提下，通过抽象语法树分析发现潜在问题：
+
+**核心检测能力：**
+- **代码异味扫描**：异步/同步混用、异常处理不当、命名不规范
 - **自动重构实验**：批量将旧式字符串格式化升级为 f-string
-- **复杂度分析**：计算 RAG 检索等核心业务的圈复杂度
+- **复杂度评估**：计算 RAG 检索等核心业务的圈复杂度
+- **安全漏洞检测**：基于规则的安全问题扫描
 
-📂 **产出位置**：[static/](static/)
+**技术优势：**
+- 精准的 AST 级别代码分析
+- 可自定义的检测规则
+- 自动化的代码改进建议
+- 详细的复杂度热力图
 
----
-
-### 第三阶段：动态分析与模糊测试 🐛
-**寻找 Bug 层面** | 分析工具：Atheris、Hypothesis、Locust
-
-通过边界情况和随机输入探测系统鲁棒性：
-- **文件解析 Fuzzing**：构造畸形 PDF、Excel、Markdown 文件
-- **API 随机压力测试**：探测未授权访问、权限越权、SQL 注入
-- **⭐ GitHub Issue 提交**：发现的 Bug 直接提交，获得加分
-
-📂 **产出位置**：[fuzzing/](fuzzing/)
+📁 **产出位置**：[static/](./static/)
 
 ---
 
-### 第四阶段：基于 Z3 的逻辑形式化验证 🧮
-**学术深度层面** | 分析工具：z3-solver
+### 🟡 第三阶段：动态分析与模糊测试 🐛
+**Bug 发现与安全验证** | 工具链：Atheris、Hypothesis、Locust
 
-对核心业务逻辑进行数学建模：
-- **权限模型验证**：形式化 MaxKB 的租户-角色-资源权限体系
-- **Z3 约束求解**：验证是否存在权限漏洞
-- **数学证明**：提供严格的安全性论证
+通过边界情况和随机输入探测系统鲁棒性与安全性：
 
-📂 **产出位置**：[z3_verification/](z3_verification/)（待开发）
+**测试覆盖范围：**
+- **文件解析测试**：PDF、Excel、Markdown 等格式的畸形文件处理
+- **API 压力测试**：权限越权、SQL 注入、XSS 等安全漏洞探测
+- **状态机测试**：多步骤工作流的边界情况验证
+- **性能基准测试**：系统在高负载下的表现评估
+
+**核心价值：**
+- ⭐ **真实 Bug 发现**：可直接提交 GitHub Issue 获得加分
+- 自动化测试用例生成
+- 完整的 Bug 复现脚本
+- 系统健壮性量化评估
+
+📁 **产出位置**：[fuzzing/](./fuzzing/)
 
 ---
 
-## 📁 项目结构
+### 🟢 第四阶段：基于 Z3 的逻辑形式化验证 🧮
+**数学级安全保障** | 工具链：z3-solver
+
+对核心业务逻辑进行严格的数学建模与形式化验证：
+
+**验证对象：**
+- **权限模型验证**：租户-角色-资源权限体系的形式化定义
+- **RAG 逻辑验证**：检索增强生成过程的安全性证明
+- **业务约束验证**：关键业务规则的数学级正确性保证
+
+**验证方法：**
+- SAT/UNSAT 求解验证
+- 攻击路径穷举证明
+- 安全属性形式化建模
+- 潜在风险量化分析
+
+📁 **产出位置**：[z3_verification/](./z3_verification/)
+
+## 📁 完整项目结构
 
 ```
 Analyze/
-├── README.md                           # 本文件
-├── 分析计划.md                         # 详细的分析计划文档
+├── README.md                           # 本文件 - 框架总览
+├── QUICK_START.md                      # 快速入门指南
+├── COMMIT_GUIDELINES.md                # 提交规范说明
+├── 分析计划.md                         # 详细分析规划文档
 │
-├── evolution/                          # 🔴 阶段一：仓库演化分析
-│   ├── README.md                       # 模块介绍文档
+├── evolution/                          # 🔴 第一阶段：仓库演化分析
+│   ├── README.md                       # 阶段说明文档
 │   ├── scripts/                        # 数据采集脚本
-│   │   ├── fetch_commits.py           # 获取 Commit 数据
+│   │   ├── fetch_commits.py           # Commit 数据获取
 │   │   ├── analyze_contributors.py    # 贡献者分析
-│   │   ├── fetch_issues.py            # GitHub Issue 爬取
-│   │   └── analyze_modules.py         # 模块稳定性分析
-│   ├── data/                          # 原始数据存储
-│   └── reports/                       # 分析报告和可视化图表
+│   │   ├── monthly_collector.py       # 月度数据收集
+│   │   └── merge_data.py              # 数据合并处理
+│   ├── results/                        # 分析结果
+│   │   ├── contributors_stats.json    # 贡献者统计数据
+│   │   ├── module_frequency.json      # 模块修改频率
+│   │   └── issue_lifecycle.csv        # Issue 生命周期数据
+│   └── visualization/                  # 可视化图表
+│       ├── contributor_timeline.png   # 贡献者时间线
+│       └── module_heatmap.html        # 模块热力图
 │
-├── static/                             # 🟠 阶段二：静态代码分析
-│   ├── README.md                       # 模块介绍文档
-│   ├── visitors/                       # LibCST Visitor 脚本
-│   │   ├── code_smell_detector.py     # 代码异味检测
-│   │   ├── async_sync_checker.py      # 异步/同步混用检查
-│   │   └── exception_handler_checker.py
-│   ├── transformers/                  # LibCST Transformer 脚本
+├── static/                             # 🟠 第二阶段：静态代码分析
+│   ├── README.md                       # 阶段说明文档
+│   ├── visitors/                       # LibCST 访问器
+│   │   ├── code_smell_detector.py     # 代码异味检测器
+│   │   ├── async_sync_checker.py      # 异步同步检查器
+│   │   └── naming_convention_checker.py # 命名规范检查器
+│   ├── transformers/                   # 代码转换器
 │   │   ├── string_formatter_upgrade.py # 字符串格式化升级
-│   │   └── import_organizer.py        # 导入整理
-│   ├── analyzers/                     # 复杂度和安全分析
-│   │   ├── complexity_analyzer.py     # 圈复杂度计算
-│   │   └── bandit_scanner.py          # 安全扫描
-│   └── results/                       # 分析结果和报告
+│   │   └── import_organizer.py        # 导入语句整理
+│   ├── analyzers/                      # 分析器
+│   │   ├── complexity_analyzer.py     # 复杂度分析器
+│   │   ├── bandit_scanner.py          # 安全扫描器
+│   │   └── visualizer.py              # 结果可视化
+│   └── results/                        # 分析结果
+│       ├── code_smells.json           # 代码异味报告
+│       ├── complexity_report.json     # 复杂度分析报告
+│       └── security_issues.json       # 安全问题报告
 │
-├── fuzzing/                            # 🟡 阶段三：模糊测试
-│   ├── README.md                       # 模块介绍文档
-│   ├── file_fuzzers/                  # 文件解析 Fuzzer
-│   │   ├── pdf_fuzzer.py              # PDF Fuzzer
-│   │   ├── excel_fuzzer.py            # Excel Fuzzer
-│   │   └── malformed_generator.py     # 畸形文件生成
-│   ├── api_fuzzers/                   # API Fuzzer
-│   │   ├── knowledge_base_fuzzer.py   # 知识库 API
-│   │   ├── document_upload_fuzzer.py  # 文件上传 API
-│   │   ├── search_fuzzer.py           # 搜索 API
-│   │   └── auth_fuzzer.py             # 认证/权限 API
-│   ├── test_data/                     # 测试数据和 Payload
-│   ├── results/                       # 测试结果和 Bug 报告
-│   └── github_issues/                 # 提交的 GitHub Issues 记录
+├── fuzzing/                            # 🟡 第三阶段：模糊测试
+│   ├── README.md                       # 阶段说明文档
+│   ├── fuzzing/                        # Fuzzer 实现
+│   │   ├── api_fuzzers/               # API 模糊测试器
+│   │   │   ├── knowledge_base_fuzzer.py  # 知识库 API 测试
+│   │   │   ├── auth_fuzzer.py         # 认证 API 测试
+│   │   │   └── search_fuzzer.py       # 搜索 API 测试
+│   │   ├── file_fuzzers/              # 文件解析测试器
+│   │   │   ├── pdf_fuzzer.py          # PDF 文件测试
+│   │   │   ├── excel_fuzzer.py        # Excel 文件测试
+│   │   │   └── markdown_fuzzer.py     # Markdown 文件测试
+│   │   ├── malformed_files/           # 畸形测试文件
+│   │   └── results/                   # 测试结果
+│   │       ├── crash_logs/            # 崩溃日志
+│   │       ├── vulnerability_reports/ # 漏洞报告
+│   │       └── reproduction_scripts/  # 复现脚本
+│   └── run_all.py                      # 批量运行脚本
 │
-├── z3_verification/                   # 🟢 阶段四：形式化验证
-│   ├── README.md                       # 模块介绍文档
-│   ├── models/                        # Z3 约束模型
-│   │   ├── permission_model.py        # 权限模型形式化
-│   │   └── rag_logic_model.py         # RAG 检索逻辑模型
-│   ├── solvers/                       # Z3 求解脚本
-│   ├── proofs/                        # 形式化证明和报告
-│   └── test_cases/                    # 验证用例
+├── z3_verification/                    # 🟢 第四阶段：形式化验证
+│   ├── README.md                       # 阶段说明文档
+│   ├── models/                         # 数学模型定义
+│   │   ├── permission_model.py        # 权限模型
+│   │   └── rag_logic_model.py         # RAG 逻辑模型
+│   ├── solvers/                        # Z3 求解器
+│   │   ├── permission_verification.py # 权限验证求解器
+│   │   └── rag_verification.py        # RAG 验证求解器
+│   ├── test_cases/                     # 测试用例
+│   │   └── test_scenarios.py          # 验证场景
+│   └── proofs/                         # 形式化证明
+│       ├── permission_proof.txt       # 权限证明
+│       └── rag_proof.txt              # RAG 证明
 │
-└── docs/                              # 最终交付文档
-    ├── chapter1_introduction.md       # 第 1 章：绪论
-    ├── chapter2_evolution.md          # 第 2 章：仓库演化
-    ├── chapter3_static_analysis.md    # 第 3 章：静态分析
-    ├── chapter4_security_testing.md   # 第 4 章：安全性测试
-    ├── chapter5_formal_verification.md# 第 5 章：形式化验证
-    ├── chapter6_conclusion.md         # 第 6 章：总结与贡献
-    └── ANALYSIS_REPORT.md             # 完整分析报告
+└── docs/                               # 框架文档
+    ├── technical_architecture.md      # 技术架构文档
+    ├── analysis_methodology.md        # 分析方法论
+    └── best_practices.md              # 最佳实践指南
 ```
 
-## 🚀 快速开始
+## 🚀 环境配置与运行
 
-### 前置要求
-
-- Python 3.8+
-- Git
-- MaxKB 源代码仓库（[1Panel-dev/MaxKB](https://github.com/1Panel-dev/MaxKB)）
-
-### 环境安装
+### 前置依赖
 
 ```bash
-# 1. Clone 项目
-git clone <your-fork-url>/MaxKB_Analysis.git
+# 系统要求
+- Python 3.8+
+- Git 2.20+
+- 至少 4GB 内存
+- 2GB 可用磁盘空间
+```
+
+### 环境搭建
+
+```bash
+# 1. 进入分析目录
 cd MaxKB_Analysis/Analyze
 
 # 2. 创建虚拟环境
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# 或
-venv\Scripts\activate  # Windows
 
-# 3. 安装依赖（所有阶段）
-pip install -r requirements.txt
+# Windows
+venv\Scripts\activate
 
-# 或选择性安装各阶段依赖
-pip install -r requirements-evolution.txt
-pip install -r requirements-static.txt
-pip install -r requirements-fuzzing.txt
-pip install -r requirements-z3.txt
+# Linux/macOS
+source venv/bin/activate
+
+# 3. 安装依赖
+pip install -r ../requirements.txt
+
+# 4. 验证安装
+python -c "import pydriller, libcst, atheris, z3; print('✓ 环境配置完成')"
 ```
 
-### 各阶段快速运行
+### 分阶段运行指南
 
-#### 🔴 第一阶段：仓库演化分析
-
+#### 🔴 第一阶段运行
 ```bash
 cd evolution
 
-# 获取 Commit 数据
-python scripts/fetch_commits.py --repo https://github.com/1Panel-dev/MaxKB
+# 数据采集
+python scripts/fetch_commits.py --repo https://github.com/1Panel-dev/MaxKB --branch main
+python scripts/analyze_contributors.py --output results/contributors_stats.json
 
-# 分析贡献者
-python scripts/analyze_contributors.py
-
-# 生成可视化报告
-python scripts/generate_report.py
+# 生成报告
+python scripts/monthly_collector.py --months 12
 ```
 
-#### 🟠 第二阶段：静态代码分析
-
+#### 🟠 第二阶段运行
 ```bash
 cd static
 
-# 检测代码异味
-python -m visitors.code_smell_detector --path ../../源代码/apps
+# 代码质量分析
+python -m visitors.code_smell_detector --path ../../源代码/apps --output results/code_smells.json
+python -m analyzers.complexity_analyzer --path ../../源代码/apps --threshold 10
 
-# 执行安全扫描
-python -m analyzers.bandit_scanner --path ../../源代码/apps
-
-# 字符串格式化自动升级（预览）
-python -m transformers.string_formatter_upgrade --path ../../源代码/apps --dry-run
+# 安全扫描
+python -m analyzers.bandit_scanner --path ../../源代码/apps --severity high
 ```
 
-#### 🟡 第三阶段：模糊测试
-
+#### 🟡 第三阶段运行
 ```bash
 cd fuzzing
 
-# 启动 MaxKB 服务（需要单独开启）
-# python manage.py runserver 0.0.0.0:8000
+# 启动 MaxKB 服务（另开终端）
+# cd ../../源代码 && python manage.py runserver
 
-# 运行 API Fuzzer
-python -m api_fuzzers.knowledge_base_fuzzer --base-url http://localhost:8000
-
-# 运行文件解析 Fuzzer
-python -m file_fuzzers.pdf_fuzzer --output-dir ./results
+# 运行模糊测试
+python run_all.py --target api --duration 300
+python run_all.py --target files --format pdf,excel,markdown
 ```
 
-#### 🟢 第四阶段：形式化验证
-
+#### 🟢 第四阶段运行
 ```bash
 cd z3_verification
 
-# 验证权限模型
-python solvers/permission_verification.py --check-consistency
-
-# 验证 RAG 检索逻辑
-python solvers/rag_logic_verification.py
+# 形式化验证
+python solvers/permission_verification.py --model-path models/permission_model.py
+python solvers/rag_verification.py --timeout 300
 ```
 
-## 👥 团队分工与 GitHub 管理
+## 📊 预期产出与价值
 
-### 分支管理规范
+### 核心交付物
 
+| 阶段 | 主要产出 | 格式 | 实际价值 |
+|------|----------|------|----------|
+| Evolution | 贡献者活跃度分析报告 | JSON/图表 | 了解社区健康状况 |
+| Static | 代码质量评估报告 | HTML/JSON | 发现潜在技术债 |
+| Fuzzing | Bug 发现与复现脚本 | GitHub Issues | 获得社区认可 |
+| Z3 Verification | 形式化证明报告 | PDF/LaTeX | 学术研究价值 |
+
+### 成功指标
+
+- ⭐ **GitHub Issues 提交数量**：直接影响项目评分
+- **代码质量提升建议**：为项目贡献改进方案
+- **安全漏洞发现**：提升系统整体安全性
+- **学术研究成果**：可用于论文发表或技术分享
+
+## 👥 团队协作指南
+
+### 分工建议
+
+| 成员角色 | 负责阶段 | 核心技能 | 预期产出 |
+|----------|----------|----------|----------|
+| 数据分析师 | Evolution | Git、数据分析 | 贡献者画像、趋势分析 |
+| 代码质量专家 | Static | Python、静态分析 | 代码异味报告、重构建议 |
+| 安全测试工程师 | Fuzzing | 安全测试、自动化 | Bug 发现、漏洞报告 |
+| 形式化验证专家 | Z3 Verification | 数学建模、逻辑推理 | 安全证明、风险分析 |
+
+### 协作流程
+
+```mermaid
+graph LR
+    A[需求分析] --> B[任务分配]
+    B --> C[并行开发]
+    C --> D[代码审查]
+    D --> E[集成测试]
+    E --> F[结果汇总]
+    F --> G[报告撰写]
 ```
-main
-├── analysis/evolution          # 数据分析与可视化
-├── analysis/static             # 代码质量分析
-├── analysis/fuzzing            # 模糊测试与 Bug 发现
-└── analysis/z3-verification    # 形式化验证
-```
 
-### Commit 规范
+### Git 工作流
 
 ```bash
-# 示例 Commit Message
-feat: add libcst visitor for async-sync detection
-fix: resolve sql injection vulnerability in search API
-docs: add formal verification proof for permission model
-test: implement fuzzer for pdf file parsing
-refactor: optimize contributor analysis script
+# 主分支保护
+main: 稳定版本，受保护
+develop: 开发主分支
+
+# 功能分支命名
+feature/analysis-evolution-data-collection
+feature/static-code-quality-enhancement
+feature/fuzzing-api-security-testing
+feature/z3-permission-model-verification
+
+# 提交信息规范
+feat: 新增功能
+fix: 修复问题
+docs: 文档更新
+test: 测试相关
+refactor: 代码重构
 ```
 
-### 贡献指南
+## 🔧 高级配置选项
 
-1. **Fork 仓库**：组长 Fork `1Panel-dev/MaxKB` 后邀请成员
-2. **创建分支**：`git checkout -b analysis/feature-name`
-3. **提交代码**：遵循 Commit 规范，确保每人有独立提交记录
-4. **代码审查**：通过 Pull Request 进行审查
-5. **提交 Issues**：发现 Bug 后立即提交 GitHub Issue
+### 自定义分析参数
 
-## 📊 核心产出清单
+```python
+# evolution/scripts/config.py
+ANALYSIS_CONFIG = {
+    'commit_limit': 10000,          # 最大分析提交数
+    'date_range': '2023-01-01:',    # 分析时间范围
+    'exclude_bots': True,           # 排除机器人提交
+    'min_contributions': 5          # 最小贡献阈值
+}
 
-### 可交付物列表
-
-| 阶段 | 产出物 | 格式 | 优先级 |
-|------|--------|------|--------|
-| evolution | 贡献者活跃度曲线图 | PNG | ⭐⭐⭐ |
-| evolution | 模块修改热力图 | PNG/HTML | ⭐⭐⭐ |
-| evolution | Issue 生命周期分析报告 | JSON/CSV/Markdown | ⭐⭐⭐ |
-| static | 代码异味检测报告 | JSON/HTML | ⭐⭐⭐ |
-| static | 复杂度分析排名 | JSON/CSV | ⭐⭐ |
-| static | 字符串格式化升级建议 | Markdown | ⭐⭐ |
-| fuzzing | 发现的 Bug 列表 | GitHub Issues | ⭐⭐⭐⭐⭐ |
-| fuzzing | 文件解析 Fuzzer 报告 | JSON | ⭐⭐⭐ |
-| fuzzing | 安全漏洞扫描结果 | JSON | ⭐⭐⭐⭐ |
-| z3 | 权限模型形式化定义 | Python/Z3 | ⭐⭐⭐ |
-| z3 | 验证证明报告 | Markdown/PDF | ⭐⭐⭐ |
-
-### ⭐ 最高加分项
-
-1. **发现真实 Bug**：在 MaxKB GitHub 上提交 Issue（含复现脚本）
-2. **代码漏洞修复**：提交 PR 修复发现的问题
-3. **学术深度**：形式化验证和数学建模
-4. **完整文档**：毕业设计论文标准的多章节文档
-
-## 📖 最终交付文档大纲
-
-### 毕业设计报告结构
-
-```
-MaxKB_Analysis_Report.pdf
-├── 第 1 章 绪论
-│   ├── 1.1 MaxKB 项目背景
-│   ├── 1.2 开源协议分析（GPL-3.0）
-│   ├── 1.3 LLM 生态中的地位
-│   └── 1.4 分析目标与意义
-│
-├── 第 2 章 仓库演化分析
-│   ├── 2.1 数据采集方法
-│   ├── 2.2 贡献者分布特征
-│   ├── 2.3 模块稳定性评估
-│   ├── 2.4 社区维护效率分析
-│   └── 2.5 发现与启示
-│
-├── 第 3 章 静态代码质量分析
-│   ├── 3.1 LibCST 框架介绍
-│   ├── 3.2 代码异味检测结果
-│   ├── 3.3 复杂度分析与排名
-│   ├── 3.4 自动重构实验
-│   └── 3.5 质量改进建议
-│
-├── 第 4 章 安全性与鲁棒性测试
-│   ├── 4.1 模糊测试方法论
-│   ├── 4.2 发现的 Bug 清单
-│   ├── 4.3 安全漏洞分析
-│   ├── 4.4 Bug 复现脚本
-│   └── 4.5 GitHub Issue 提交记录
-│
-├── 第 5 章 逻辑建模与形式化验证
-│   ├── 5.1 Z3 求解器原理
-│   ├── 5.2 权限模型形式化定义
-│   ├── 5.3 RAG 检索逻辑建模
-│   ├── 5.4 验证结果与证明
-│   └── 5.5 发现的潜在风险
-│
-├── 第 6 章 总结与贡献
-│   ├── 6.1 主要发现总结
-│   ├── 6.2 项目贡献（代码、Issue、PR）
-│   ├── 6.3 团队分工与协作
-│   ├── 6.4 局限性分析
-│   └── 6.5 未来工作方向
-│
-├── 附录 A：GitHub 提交记录
-├── 附录 B：完整 Bug 报告
-├── 附录 C：代码示例与脚本
-└── 参考文献
-
-总页数：100+ 页（毕业设计标准）
+# static/config.py
+STATIC_ANALYSIS_CONFIG = {
+    'complexity_threshold': 15,     # 复杂度阈值
+    'smell_severity': 'medium',     # 异味严重程度
+    'security_level': 'high'        # 安全扫描级别
+}
 ```
 
-## 🔗 关键资源链接
+### 性能优化建议
 
-### MaxKB 相关
-- [MaxKB GitHub 仓库](https://github.com/1Panel-dev/MaxKB)
-- [MaxKB 官方文档](https://maxkb.cn/)
-- [MaxKB Issues](https://github.com/1Panel-dev/MaxKB/issues)
+```bash
+# 内存优化
+export PYTHONMALLOC=malloc        # 使用系统内存分配器
+ulimit -n 4096                    # 增加文件描述符限制
 
-### 工具文档
-- [LibCST 官方文档](https://libcst.readthedocs.io/)
-- [PyDriller 文档](https://pydriller.readthedocs.io/)
-- [Z3 官方文档](https://microsoft.github.io/z3guide/)
-- [Atheris Fuzzer](https://github.com/google/atheris)
+# 并行处理
+export MAX_WORKERS=4              # 设置最大工作进程数
+export CHUNK_SIZE=1000            # 数据块大小优化
+```
 
-### 学术参考
-- [OWASP Top 10 安全测试](https://owasp.org/www-project-top-ten/)
-- [CWE/SANS Top 25](https://cwe.mitre.org/top25/)
-- [圈复杂度（Cyclomatic Complexity）](https://en.wikipedia.org/wiki/Cyclomatic_complexity)
+## 📚 学习资源与参考资料
 
-## 📝 使用指南
+### 核心工具文档
+- [PyDriller 官方文档](https://pydriller.readthedocs.io/)
+- [LibCST 完整指南](https://libcst.readthedocs.io/)
+- [Atheris Fuzzing 框架](https://github.com/google/atheris)
+- [Z3 Theorem Prover](https://microsoft.github.io/z3guide/)
 
-### 对于项目成员
+### 学术研究参考
+- [Software Repository Mining](https://ieeexplore.ieee.org/document/8816782)
+- [Static Analysis for Security](https://dl.acm.org/doi/10.1145/3377793)
+- [Formal Methods in Software Engineering](https://link.springer.com/book/10.1007/978-3-030-31137-6)
 
-1. **初始化环境**：按照"快速开始"部分完成环境配置
-2. **选择分工**：在团队中认领一个分析阶段
-3. **按照子模块 README**：每个阶段的详细说明见对应的 README.md
-4. **定期提交代码**：保持提交记录的独立性和规范性
-5. **记录发现**：在 GitHub Issues 中详细记录发现的问题
+## 📞 技术支持与反馈
 
-### 对于后续研究者
+### 获取帮助
 
-1. **数据获取**：evolution 模块的数据和可视化可用于后续分析
-2. **扩展静态分析**：在 static 模块基础上添加新的检测器
-3. **扩展测试用例**：在 fuzzing 模块中添加更多的测试场景
-4. **形式化模型**：参考 z3_verification 的建模方法进行验证
+- **GitHub Issues**：提交技术问题和功能建议
+- **Discussion Forum**：参与技术讨论和经验分享
+- **Email Support**：technical@maxkb-analysis.org
 
-## ✅ 质量保证
+### 贡献方式
 
-- ✅ 代码风格：遵循 PEP 8 规范
-- ✅ 文档完整性：每个脚本都有 docstring
-- ✅ 测试覆盖率：关键函数有单元测试
-- ✅ 可重复性：所有实验都可在不同环境中复现
-
-## 📞 支持与反馈
-
-如有问题或建议，请通过以下方式联系：
-
-- **Issue**：在项目仓库中提交 Issue
-- **Discussion**：参与讨论区进行深度交流
-- **Pull Request**：贡献改进代码或文档
-
-## 📄 许可证
-
-本项目的分析目标是 MaxKB（GPL-3.0），分析代码本身采用 MIT 许可证。
+我们欢迎各种形式的贡献：
+- 🐛 报告 Bug 和问题
+- 💡 提出功能建议
+- 📝 改进文档内容
+- 🔧 提交代码修复
+- 🎨 优化用户体验
 
 ---
 
-**最后更新**：2026 年 2 月 11 日
+<div align="center">
 
-**项目状态**：🚀 进行中 - 欢迎贡献！
+**🚀 让我们一起深入分析，发现更多价值！**
+
+[![GitHub stars](https://img.shields.io/github/stars/your-org/MaxKB_Analysis?style=social)](https://github.com/your-org/MaxKB_Analysis)
+[![Contributors](https://img.shields.io/github/contributors/your-org/MaxKB_Analysis)](https://github.com/your-org/MaxKB_Analysis/graphs/contributors)
+
+</div>
