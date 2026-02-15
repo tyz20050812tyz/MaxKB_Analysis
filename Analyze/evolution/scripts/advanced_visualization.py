@@ -227,9 +227,9 @@ class AdvancedVisualizer:
         plt.savefig('results/code_churn_analysis.png', dpi=300, bbox_inches='tight')
         plt.close()
         
-    def create_contributor_diversity_wheel(self):
-        """创建贡献者多样性轮图"""
-        print("🎯 生成贡献者多样性轮图...")
+    def create_contributor_diversity_chart(self):
+        """创建贡献者多样性分布图 (PNG格式)"""
+        print("🎯 生成贡献者多样性分布图...")
         
         # 计算贡献分布
         total_commits = self.author_stats['commits'].sum()
@@ -237,26 +237,28 @@ class AdvancedVisualizer:
         next_15 = self.author_stats.iloc[5:20]['commits'].sum() / total_commits * 100
         others = 100 - top_5 - next_15
         
-        labels = ['Top 5 贡献者', '第6-20名贡献者', '其他贡献者']
+        labels = ['Top 5 贡献者', '第6-20名', '其他贡献者']
         values = [top_5, next_15, others]
         colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
         
-        fig = go.Figure(data=[go.Pie(
-            labels=labels,
-            values=values,
-            hole=0.4,
-            marker_colors=colors,
-            textinfo='label+percent',
-            textfont_size=14
-        )])
+        fig, ax = plt.subplots(figsize=(10, 8))
         
-        fig.update_layout(
-            title="贡献者多样性分布",
-            width=600,
-            height=600
-        )
+        wedges, texts, autotexts = ax.pie(values, labels=labels, autopct='%1.1f%%', 
+                                         colors=colors, startangle=90, 
+                                         explode=(0.1, 0, 0))
         
-        fig.write_html('results/contributor_diversity.html')
+        # 美化文本
+        for text in texts:
+            text.set_fontsize(12)
+        for autotext in autotexts:
+            autotext.set_color('white')
+            autotext.set_fontweight('bold')
+        
+        ax.set_title('贡献者多样性分布', fontsize=16, pad=20)
+        
+        plt.tight_layout()
+        plt.savefig('results/contributor_diversity.png', dpi=300, bbox_inches='tight')
+        plt.close()
         
     def generate_all_visualizations(self):
         """生成所有可视化图表"""
@@ -270,11 +272,11 @@ class AdvancedVisualizer:
         
         # 生成各种图表
         self.create_3d_contributor_landscape()
-        self.create_interactive_contributor_network()
+        self.create_3d_contributor_network()
         self.create_time_series_heatmap()
         self.create_pareto_analysis_3d()
         self.create_code_churn_analysis()
-        self.create_contributor_diversity_wheel()
+        self.create_contributor_diversity_chart()
         
         print("\n✅ 所有可视化图表生成完成！")
         print("\n📁 输出文件:")
