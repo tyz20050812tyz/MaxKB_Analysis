@@ -1,0 +1,238 @@
+{
+  "summary": {
+    "total_commits": 3258,
+    "unique_authors": 73,
+    "active_authors_6m": 6,
+    "core_team_size": 3,
+    "avg_commits_per_author": 44.63,
+    "gini_coefficient": 0.914
+  },
+  "top_contributors": [
+    {
+      "rank": 1,
+      "author": "shaohuzhang1",
+      "commits": 925,
+      "percentage": 28.39,
+      "insertions": 170282,
+      "deletions": 74681,
+      "code_change": 244963,
+      "first_commit": "2023-09-15",
+      "last_commit": "2026-02-09"
+    },
+    {
+      "rank": 2,
+      "author": "wangdan-fit2cloud",
+      "commits": 786,
+      "percentage": 24.13,
+      "insertions": 102408,
+      "deletions": 41039,
+      "code_change": 143447,
+      "first_commit": "2023-10-12",
+      "last_commit": "2026-02-09"
+    },
+    {
+      "rank": 3,
+      "author": "CaptainB",
+      "commits": 578,
+      "percentage": 17.74,
+      "insertions": 42648,
+      "deletions": 149790,
+      "code_change": 192438,
+      "first_commit": "2024-10-08",
+      "last_commit": "2026-02-11"
+    },
+    {
+      "rank": 4,
+      "author": "wxg0103",
+      "commits": 450,
+      "percentage": 13.81,
+      "insertions": 75628,
+      "deletions": 35171,
+      "code_change": 110799,
+      "first_commit": "2024-04-15",
+      "last_commit": "2026-02-04"
+    },
+    {
+      "rank": 5,
+      "author": "liqiang-fit2cloud",
+      "commits": 174,
+      "percentage": 5.34,
+      "insertions": 13511,
+      "deletions": 7728,
+      "code_change": 21239,
+      "first_commit": "2023-09-14",
+      "last_commit": "2026-02-12"
+    },
+    {
+      "rank": 6,
+      "author": "zhangzhanwei",
+      "commits": 137,
+      "percentage": 4.21,
+      "insertions": 10531,
+      "deletions": 1980,
+      "code_change": 12511,
+      "first_commit": "2025-05-29",
+      "last_commit": "2026-02-11"
+    },
+    {
+      "rank": 7,
+      "author": "maninhill",
+      "commits": 72,
+      "percentage": 2.21,
+      "insertions": 264,
+      "deletions": 183,
+      "code_change": 447,
+      "first_commit": "2024-04-11",
+      "last_commit": "2025-04-10"
+    },
+    {
+      "rank": 8,
+      "author": "guqing",
+      "commits": 11,
+      "percentage": 0.34,
+      "insertions": 263,
+      "deletions": 192,
+      "code_change": 455,
+      "first_commit": "2025-02-07",
+      "last_commit": "2025-02-24"
+    },
+    {
+      "rank": 9,
+      "author": "tongque",
+      "commits": 11,
+      "percentage": 0.34,
+      "insertions": 1389,
+      "deletions": 452,
+      "code_change": 1841,
+      "first_commit": "2024-04-27",
+      "last_commit": "2024-05-18"
+    },
+    {
+      "rank": 10,
+      "author": "王丹",
+      "commits": 8,
+      "percentage": 0.25,
+      "insertions": 1306,
+      "deletions": 606,
+      "code_change": 1912,
+      "first_commit": "2024-07-26",
+      "last_commit": "2025-02-07"
+    },
+    {
+      "rank": 11,
+      "author": "baixin",
+      "commits": 8,
+      "percentage": 0.25,
+      "insertions": 17,
+      "deletions": 12,
+      "code_change": 29,
+      "first_commit": "2024-04-19",
+      "last_commit": "2024-12-30"
+    },
+    {
+      "rank": 12,
+      "author": "刘瑞斌",
+      "commits": 7,
+      "percentage": 0.21,
+      "insertions": 1240,
+      "deletions": 202,
+      "code_change": 1442,
+      "first_commit": "2024-07-02",
+      "last_commit": "2025-02-21"
+    },
+    {
+      "rank": 13,
+      "author": "junjun",
+      "commits": 6,
+      "percentage": 0.18,
+      "insertions": 678,
+      "deletions": 89,
+      "code_change": 767,
+      "first_commit": "2025-03-18",
+      "last_commit": "2025-03-20"
+    },
+    {
+      "rank": 14,
+      "author": "wanghe-fit2cloud",
+      "commits": 6,
+      "percentage": 0.18,
+      "insertions": 221,
+      "deletions": 55,
+      "code_change": 276,
+      "first_commit": "2024-04-23",
+      "last_commit": "2024-12-19"
+    },
+    {
+      "rank": 15,
+      "author": "Brian Yang",
+      "commits": 6,
+      "percentage": 0.18,
+      "insertions": 605,
+      "deletions": 274,
+      "code_change": 879,
+      "first_commit": "2024-04-22",
+      "last_commit": "2024-05-22"
+    },
+    {
+      "rank": 16,
+      "author": "zhangshaohu",
+      "commits": 4,
+      "percentage": 0.12,
+      "insertions": 358,
+      "deletions": 30,
+      "code_change": 388,
+      "first_commit": "2023-12-07",
+      "last_commit": "2024-10-13"
+    },
+    {
+      "rank": 17,
+      "author": "wanghe",
+      "commits": 3,
+      "percentage": 0.09,
+      "insertions": 25,
+      "deletions": 17,
+      "code_change": 42,
+      "first_commit": "2024-04-07",
+      "last_commit": "2024-10-30"
+    },
+    {
+      "rank": 18,
+      "author": "xuwei-fit2cloud",
+      "commits": 3,
+      "percentage": 0.09,
+      "insertions": 22,
+      "deletions": 9,
+      "code_change": 31,
+      "first_commit": "2024-04-15",
+      "last_commit": "2024-04-15"
+    },
+    {
+      "rank": 19,
+      "author": "w940853815",
+      "commits": 2,
+      "percentage": 0.06,
+      "insertions": 28,
+      "deletions": 27,
+      "code_change": 55,
+      "first_commit": "2024-04-15",
+      "last_commit": "2025-02-10"
+    },
+    {
+      "rank": 20,
+      "author": "ivy",
+      "commits": 2,
+      "percentage": 0.06,
+      "insertions": 4,
+      "deletions": 24,
+      "code_change": 28,
+      "first_commit": "2025-03-21",
+      "last_commit": "2025-03-24"
+    }
+  ],
+  "concentration": {
+    "top_5_percent_size": 3,
+    "top_5_percent_commits": 2289,
+    "top_5_percent_concentration": 70.26,
+    "interpretation": "High"
+  }
+}

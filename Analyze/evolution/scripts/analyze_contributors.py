@@ -49,6 +49,10 @@ def analyze_contributors(commits: List[Dict], recent_months: int = 6) -> Dict:
     df = pd.DataFrame(commits)
     df['date'] = pd.to_datetime(df['date'])
     
+    # 提取 stats 中的代码变更数据
+    df['insertions'] = df['stats'].apply(lambda x: x.get('additions', 0) if isinstance(x, dict) else 0)
+    df['deletions'] = df['stats'].apply(lambda x: x.get('deletions', 0) if isinstance(x, dict) else 0)
+    
     # 基础统计
     total_commits = len(df)
     unique_authors = df['author'].nunique()
@@ -66,8 +70,10 @@ def analyze_contributors(commits: List[Dict], recent_months: int = 6) -> Dict:
     author_stats = author_stats.sort_values('commits', ascending=False)
     
     # 活跃贡献者 (最近 N 个月)
+    # 处理时区问题：将 naive datetime 转换为 UTC
     recent_date = datetime.now() - timedelta(days=30*recent_months)
-    recent_df = df[df['date'] > recent_date]
+    recent_date_utc = recent_date.replace(tzinfo=None)  # 移除时区信息以匹配数据
+    recent_df = df[df['date'].dt.tz_localize(None) > recent_date_utc]
     active_authors = recent_df['author'].nunique()
     
     # 核心团队分析 (前 5% 贡献者)
