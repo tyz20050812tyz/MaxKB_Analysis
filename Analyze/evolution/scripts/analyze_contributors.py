@@ -227,39 +227,32 @@ def print_report(analysis: Dict) -> None:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='分析 Commit 贡献者数据')
-    parser.add_argument(
-        '--input-file',
-        default='evolution/data/commits.json',
-        help='输入的 Commit 数据文件 (默认: evolution/data/commits.json)'
-    )
-    parser.add_argument(
-        '--output-dir',
-        default='evolution/results',
-        help='输出目录 (默认: evolution/results)'
-    )
-    parser.add_argument(
-        '--recent-months',
-        type=int,
-        default=6,
-        help='计算活跃贡献者的时间窗口 (月, 默认: 6)'
-    )
+    # 直接定义输入输出路径
+    INPUT_FILE = 'data/all_commits.json'  # 合并后的所有 commit 数据
+    OUTPUT_DIR = 'results'                # 分析结果输出目录
+    RECENT_MONTHS = 6                     # 活跃贡献者时间窗口(月)
     
-    args = parser.parse_args()
+    print("=" * 60)
+    print("📊 MaxKB 贡献者分析")
+    print("=" * 60)
+    print(f"📁 输入文件: {INPUT_FILE}")
+    print(f"📁 输出目录: {OUTPUT_DIR}")
+    print(f"🕐 活跃期: 最近 {RECENT_MONTHS} 个月")
+    print()
     
     # 加载数据
-    commits = load_commits(args.input_file)
+    commits = load_commits(INPUT_FILE)
     
     # 分析
-    analysis, author_stats = analyze_contributors(commits, args.recent_months)
+    analysis, author_stats = analyze_contributors(commits, RECENT_MONTHS)
     
     # 保存结果
-    save_analysis(analysis, author_stats, args.output_dir)
+    save_analysis(analysis, author_stats, OUTPUT_DIR)
     
     # 打印报告
     print_report(analysis)
     
-    print("\n✅ 分析完成！")
+    print("\n✅ 贡献者分析完成！")
 
 
 if __name__ == '__main__':
