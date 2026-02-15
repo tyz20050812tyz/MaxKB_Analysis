@@ -1,3 +1,0 @@
-SELECT * FROM users WHERE 1=1;
-DROP TABLE documents;--
-' OR '1'='1'; --
