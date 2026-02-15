@@ -1,0 +1,1870 @@
+[
+    {
+        "file": "base_chat_step.py",
+        "line": 120,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_chat_step.py",
+        "line": 138,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_chat_step.py",
+        "line": 325,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_reset_problem_step.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 127,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 772,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'globeLabel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'globeLabel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 773,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'globeValue' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'globeValue' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 776,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'globeLabel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'globeLabel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 777,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'globeLabelNew' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'globeLabelNew' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 778,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'globeValue' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'globeValue' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 194,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 398,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 468,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 480,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 552,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "workflow_manage.py",
+        "line": 582,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_chat_node.py",
+        "line": 129,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_application_node.py",
+        "line": 143,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "ge_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "gt_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "is_not_true.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "is_true.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "len_equal_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "len_ge_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "len_gt_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "len_le_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "len_lt_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "le_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "lt_compare.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_condition_node.py",
+        "line": 41,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_condition_node.py",
+        "line": 46,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_function_lib_node.py",
+        "line": 98,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_function_node.py",
+        "line": 80,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0015_re_database_index.py",
+        "line": 42,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0015_re_database_index.py",
+        "line": 46,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "application_serializers.py",
+        "line": 441,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "application_serializers.py",
+        "line": 738,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "application_serializers.py",
+        "line": 867,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "authenticate.py",
+        "line": 33,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'HandlerClass' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'HandlerClass' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "authenticate.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "authenticate.py",
+        "line": 69,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "authenticate.py",
+        "line": 90,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "listener_manage.py",
+        "line": 90,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "listener_manage.py",
+        "line": 107,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "listener_manage.py",
+        "line": 147,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "listener_manage.py",
+        "line": 284,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "listener_manage.py",
+        "line": 308,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "handle_exception.py",
+        "line": 53,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_split_handle.py",
+        "line": 41,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_split_handle.py",
+        "line": 62,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 60,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 79,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 87,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 96,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 133,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 154,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 206,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "doc_split_handle.py",
+        "line": 231,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "html_split_handle.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "html_split_handle.py",
+        "line": 71,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "pdf_split_handle.py",
+        "line": 73,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "pdf_split_handle.py",
+        "line": 109,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "pdf_split_handle.py",
+        "line": 278,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "pdf_split_handle.py",
+        "line": 337,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "text_split_handle.py",
+        "line": 47,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "text_split_handle.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 30,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'cNvPr' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'cNvPr' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tools.py",
+        "line": 33,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'cNvPr' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'cNvPr' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tools.py",
+        "line": 75,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_split_handle.py",
+        "line": 40,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_split_handle.py",
+        "line": 71,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_split_handle.py",
+        "line": 82,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_split_handle.py",
+        "line": 34,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_split_handle.py",
+        "line": 69,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "zip_split_handle.py",
+        "line": 109,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "zip_split_handle.py",
+        "line": 141,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_parse_qa_handle.py",
+        "line": 39,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_parse_qa_handle.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_qa_handle.py",
+        "line": 22,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_qa_handle.py",
+        "line": 61,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_qa_handle.py",
+        "line": 71,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_parse_qa_handle.py",
+        "line": 19,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_parse_qa_handle.py",
+        "line": 60,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "zip_parse_qa_handle.py",
+        "line": 146,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_parse_table_handle.py",
+        "line": 22,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "csv_parse_table_handle.py",
+        "line": 42,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_table_handle.py",
+        "line": 49,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_table_handle.py",
+        "line": 66,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_table_handle.py",
+        "line": 79,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xlsx_parse_table_handle.py",
+        "line": 105,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_parse_table_handle.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except BaseException:",
+        "severity": "Medium"
+    },
+    {
+        "file": "xls_parse_table_handle.py",
+        "line": 92,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "log.py",
+        "line": 80,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "log.py",
+        "line": 84,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base.py",
+        "line": 104,
+        "issue": "异常处理不当",
+        "detail": "捕获了全量异常 (裸 except:)",
+        "severity": "High",
+        "suggested_fix": "明确指定需要捕获的异常类型，例如 'except ValueError:'"
+    },
+    {
+        "file": "base.py",
+        "line": 142,
+        "issue": "异常处理不当",
+        "detail": "捕获了全量异常 (裸 except:)",
+        "severity": "High",
+        "suggested_fix": "明确指定需要捕获的异常类型，例如 'except ValueError:'"
+    },
+    {
+        "file": "base.py",
+        "line": 167,
+        "issue": "异常处理不当",
+        "detail": "捕获了全量异常 (裸 except:)",
+        "severity": "High",
+        "suggested_fix": "明确指定需要捕获的异常类型，例如 'except ValueError:'"
+    },
+    {
+        "file": "db_model_manage.py",
+        "line": 18,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'HandlerClass' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'HandlerClass' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "fork.py",
+        "line": 147,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "fork.py",
+        "line": 165,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0011_document_status_meta_paragraph_status_meta_and_more.py",
+        "line": 20,
+        "issue": "命名不规范",
+        "detail": "函数名 'updateDocumentStatus' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'updateDocumentStatus' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "0011_document_status_meta_paragraph_status_meta_and_more.py",
+        "line": 21,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'DocumentModel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'DocumentModel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "dataset_serializers.py",
+        "line": 656,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "document_serializers.py",
+        "line": 94,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "document_serializers.py",
+        "line": 107,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "document_serializers.py",
+        "line": 558,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "generate.py",
+        "line": 41,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "generate.py",
+        "line": 74,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "generate.py",
+        "line": 104,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "sync.py",
+        "line": 35,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "sync.py",
+        "line": 48,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "sync.py",
+        "line": 60,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 66,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 84,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tools.py",
+        "line": 113,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0002_embedding_search_vector.py",
+        "line": 40,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0002_embedding_search_vector.py",
+        "line": 44,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 119,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 121,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "function_lib_serializer.py",
+        "line": 376,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'functionLib' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'functionLib' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "function_lib_serializer.py",
+        "line": 261,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "function_lib_serializer.py",
+        "line": 339,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "function_lib_serializer.py",
+        "line": 354,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "logger.py",
+        "line": 150,
+        "issue": "命名不规范",
+        "detail": "函数名 'handleError' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'handleError' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "logger.py",
+        "line": 115,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "utils.py",
+        "line": 44,
+        "issue": "异常处理不当",
+        "detail": "捕获了全量异常 (裸 except:)",
+        "severity": "High",
+        "suggested_fix": "明确指定需要捕获的异常类型，例如 'except ValueError:'"
+    },
+    {
+        "file": "0001_initial.py",
+        "line": 10,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'TeamModel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'TeamModel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "0005_model_permission_type.py",
+        "line": 15,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'ModelModel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'ModelModel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "0005_model_permission_type.py",
+        "line": 29,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'ModelModel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'ModelModel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "model_provider_constants.py",
+        "line": 59,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'model_siliconCloud_provider' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'model_siliconCloud_provider' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "base_chat_open_ai.py",
+        "line": 99,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "base_chat_open_ai.py",
+        "line": 108,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 78,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 32,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 79,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 66,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 55,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 44,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 56,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 20,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'maxTokens' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'maxTokens' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "llm.py",
+        "line": 22,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'maxTokenCount' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'maxTokenCount' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "llm.py",
+        "line": 80,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 87,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 70,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 34,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 70,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 52,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "azure_chat_model.py",
+        "line": 42,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "azure_chat_model.py",
+        "line": 49,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 33,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 40,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 54,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 32,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 53,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 60,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 29,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 42,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 47,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 34,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 45,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 60,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 33,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 73,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 48,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 55,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 79,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 72,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 38,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 33,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 73,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 40,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'SecretId' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'SecretId' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "embedding.py",
+        "line": 41,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'SecretKey' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'SecretKey' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "embedding.py",
+        "line": 24,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 52,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 13,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'Style' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'Style' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 49,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'Resolution' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'Resolution' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 99,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 64,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'httpProfile' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'httpProfile' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 68,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'clientProfile' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'clientProfile' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 55,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 42,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 51,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 37,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 55,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 59,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 36,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 52,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 62,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 42,
+        "issue": "命名不规范",
+        "detail": "函数名 'getSignatureKey' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'getSignatureKey' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "tti.py",
+        "line": 43,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'kDate' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'kDate' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 44,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'kRegion' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'kRegion' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 45,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'kService' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'kService' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 46,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'kSigning' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'kSigning' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tti.py",
+        "line": 50,
+        "issue": "命名不规范",
+        "detail": "函数名 'formatQuery' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'formatQuery' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "tti.py",
+        "line": 58,
+        "issue": "命名不规范",
+        "detail": "函数名 'signV4Request' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'signV4Request' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "tti.py",
+        "line": 107,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 32,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 61,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "embedding.py",
+        "line": 32,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 44,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 77,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 35,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 58,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 134,
+        "issue": "异步/同步混用",
+        "detail": "发现同步阻塞调用 'read()'",
+        "severity": "High",
+        "suggested_fix": "请将 'read()' 替换为对应的异步版本（如使用 aiohttp 或 asyncio.sleep），并加上 await 关键字。"
+    },
+    {
+        "file": "stt.py",
+        "line": 117,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'errMsg' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'errMsg' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "stt.py",
+        "line": 130,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'frameSize' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'frameSize' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "tts.py",
+        "line": 131,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'errMsg' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'errMsg' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "embedding.py",
+        "line": 23,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 54,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 43,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "reranker.py",
+        "line": 35,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "stt.py",
+        "line": 32,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 71,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tts.py",
+        "line": 50,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "image.py",
+        "line": 54,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "llm.py",
+        "line": 57,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "tti.py",
+        "line": 52,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "provider_serializers.py",
+        "line": 69,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "system_setting.py",
+        "line": 48,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "lib.py",
+        "line": 22,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'CELERY_result_backend' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'CELERY_result_backend' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "lib.py",
+        "line": 23,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'CELERY_timezone' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'CELERY_timezone' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "lib.py",
+        "line": 25,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'CELERY_task_serializer' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'CELERY_task_serializer' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "lib.py",
+        "line": 26,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'CELERY_result_serializer' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'CELERY_result_serializer' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "lib.py",
+        "line": 27,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'CELERY_accept_content' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'CELERY_accept_content' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "lib.py",
+        "line": 41,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    },
+    {
+        "file": "0001_initial.py",
+        "line": 11,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'UserModel' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'UserModel' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "user_serializers.py",
+        "line": 563,
+        "issue": "命名不规范",
+        "detail": "函数名 'listByType' 不符合 snake_case",
+        "severity": "Medium",
+        "suggested_fix": "将 'listByType' 重命名为小写字母加下划线的格式"
+    },
+    {
+        "file": "user_serializers.py",
+        "line": 564,
+        "issue": "命名不规范",
+        "detail": "变量/常量名 'teamIds' 不符合规范",
+        "severity": "Low",
+        "suggested_fix": "建议将 'teamIds' 修改为 snake_case (全小写加下划线) 或 CONSTANT_CASE (全大写加下划线)"
+    },
+    {
+        "file": "user_serializers.py",
+        "line": 458,
+        "issue": "异常处理不当",
+        "detail": "过于宽泛的异常捕获: except Exception:",
+        "severity": "Medium"
+    }
+]
