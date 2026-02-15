@@ -10,7 +10,7 @@ from pathlib import Path
 def merge_monthly_data():
     """合并所有月份的 commit 数据"""
     data_dir = Path('data')
-    output_file = 'data/all_commits.json'
+    output_file = 'data/all_commits.json'  # 直接定义输出路径
     
     print("=" * 50)
     print("🔄 合并月度 commit 数据")
