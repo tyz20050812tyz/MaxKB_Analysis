@@ -35,13 +35,13 @@
 
 ## 依赖工具
 
-| 工具 | 用途 |
-|------|------|
+| 工具     | 用途                 |
+| -------- | -------------------- |
 | `libcst` | 代码语法树分析和变换 |
-| `flake8` | 代码风格检查 |
-| `bandit` | 安全漏洞扫描 |
-| `ast` | Python 抽象语法树 |
-| `radon` | 复杂度测量 |
+| `flake8` | 代码风格检查         |
+| `bandit` | 安全漏洞扫描         |
+| `ast`    | Python 抽象语法树    |
+| `radon`  | 复杂度测量           |
 
 ## 项目结构
 
@@ -64,17 +64,15 @@ static/
 │   ├── complexity_analyzer.py     # 圈复杂度计算
 │   ├── duplicate_detector.py      # 代码重复检测
 │   └── bandit_scanner.py          # 安全扫描
-├── config/                        # 配置文件
-│   ├── default_rules.yaml         # 默认规则配置
-│   └── scan_targets.json          # 扫描目标配置
+│   └── visualizer.py              # 生成图表
 ├── results/                       # 分析结果
 │   ├── code_smells.json           # 代码异味报告
 │   ├── complexity_report.json     # 复杂度报告
 │   ├── security_issues.json       # 安全问题报告
-│   └── refactoring_suggestions.md # 重构建议
-└── tests/                         # 单元测试
-    ├── test_visitors.py
-    └── test_transformers.py
+│   └── visuals                    # 生成的图表
+        ├── complexity_heatmap.png # 复杂度热力图
+        ├── security_top_issues.png # 代码异味分布图
+        ├── smell_distribution.png # 安全漏洞分析图               
 ```
 
 ## 快速开始
@@ -101,8 +99,8 @@ python -m analyzers.bandit_scanner --path ../../源代码/apps
 # 3. 执行复杂度分析
 python -m analyzers.complexity_analyzer --path ../../源代码/apps
 
-# 4. 生成完整分析报告
-python analyze_all.py --repo-path ../../源代码 --output-dir ./results
+# 4. 生成图表
+python -m analyzers.visualizer
 ```
 
 ### 执行自动重构
@@ -149,15 +147,11 @@ class MyRefactorer(CSTTransformer):
 - 函数复杂度排名
 - 安全漏洞预警
 
-### 重构建议
-- 可自动化重构的代码清单
-- 人工审查清单
-- 改进前后代码对比
-
 ### 数据可视化
 - 复杂度热力图（按模块）
 - 代码异味分布图
-- 重构收益分析图
+- 安全漏洞分析图
+
 
 ## 使用建议
 
@@ -177,7 +171,7 @@ def my_view(request):
 
 # 修复建议
 async def my_view(request):
-    result = await db.query()  # ✅ 异步操作
+    result = await db.query()  # 异步操作
     return JsonResponse(result)
 ```
 
